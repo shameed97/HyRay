@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContentActivity"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/setting_icon"
+            android:tint="@color/colorPrimaryDark"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/noti_icon"
+            android:layout_marginLeft="215dp"
+            android:tint="@color/colorPrimaryDark"
+            android:layout_marginStart="215dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/pur_icon"
+            android:tint="@color/colorPrimaryDark"
+            android:layout_gravity="end"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/login_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/salesman_id"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/saleName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/salesman_name"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#8B99DD"
+            android:drawableTop="@drawable/cata_icon"
+            android:text="@string/product_ncatalogue"
+            tools:targetApi="jelly_bean"/>
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#7D57C0"
+            android:drawableTop="@drawable/p_icon"
+            android:text="@string/sales_order"
+            tools:targetApi="jelly_bean"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp" />
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#BF6ECC"
+            android:drawableTop="@drawable/note_icon"
+            android:text="@string/order_status"
+            tools:targetApi="jelly_bean"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp">
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#C28C3E"
+            android:drawableTop="@drawable/grp_icon"
+            android:text="@string/customer_details"
+            tools:targetApi="jelly_bean"/>
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#4CAF50"
+            android:drawableTop="@drawable/req_icon"
+            android:text="@string/special_request"
+            tools:targetApi="jelly_bean"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp" />
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#24948A"
+            android:drawableTop="@drawable/file_icon"
+            android:text="@string/customized"
+            tools:targetApi="jelly_bean"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp">
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#C44E46"
+            android:drawableTop="@drawable/qut_icon"
+            android:text="@string/quotation"
+            tools:targetApi="jelly_bean"/>
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#A5B13F"
+            android:drawableTop="@drawable/cal_icon"
+            android:text="@string/calendor"
+            tools:targetApi="jelly_bean"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp" />
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="#948408"
+            android:drawableTop="@drawable/bar_icon"
+            android:text="@string/scan_barcode"
+            tools:targetApi="jelly_bean"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
