@@ -6,7 +6,7 @@
     <string name="remember_me">Remember me</string>
     <string name="sign_in">Sign in</string>
     <string name="forget_password"><u>Forget Password?</u></string>
-    <string name="salesman_id">Salesman Id</string>
+    <string name="salesman_id">Salesman Code</string>
     <string name="salesman_name">Salesman Name</string>
     <string name="product_ncatalogue">Product Catalogue</string>
     <string name="sales_order">Sales Order</string>
@@ -17,4 +17,18 @@
     <string name="quotation">Quotation</string>
     <string name="customer_details">Customer Details</string>
     <string name="customized">Customized</string>
+    <string name="home">Home</string>
+    <string name="sales_report">Sales Report</string>
+    <string name="ar_listing">AR Listing</string>
+    <string name="training_deck">Training Deck</string>
+    <string name="account">Account</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="salesman_code">Salesman Code</string>
+    <string name="change_password">Change Password</string>
+    <string name="email">Email</string>
+    <string name="tel">Tel</string>
+    <string name="phone">Phone</string>
+    <string name="fax">Fax</string>
 </resources>

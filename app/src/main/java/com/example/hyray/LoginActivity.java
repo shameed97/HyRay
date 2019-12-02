@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
@@ -22,6 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,10 +31,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText editE,editP;
     private AlertDialog.Builder builder;
-    private String email,password,emp,status,serverMessage;
+    private String email,password,status,serverMessage;
+    private String emp,empCode,empEmail,empTel,empPhone,empFax;
     private int id=1;
     private String log_url="http://52.163.56.202/hyrayapi/api/user/login";
     private ProgressBar progressBar;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +46,17 @@ public class LoginActivity extends AppCompatActivity {
         editE=findViewById(R.id.userEdit);
         editP=findViewById(R.id.userPass);
         builder=new AlertDialog.Builder(this);
-        progressBar=new ProgressBar(this);
+        progressBar=findViewById(R.id.progressBar);
+        button=findViewById(R.id.signButton);
     }
 
-    public void signIn(View view) {
-       login();
+    public void signIn(View view)
+    {
+        button.setVisibility(View.INVISIBLE);
+        login();
+        progressBar.setVisibility(View.VISIBLE);
     }
+
 
     private void login() {
 
@@ -57,12 +66,24 @@ public class LoginActivity extends AppCompatActivity {
         if (email.equals("") || password.equals("")) {
             builder.setTitle("Something Went Wrong :");
             builder.setMessage("Please Fill All The Fields...");
-            displayAlerts("input_error");
+            builder.setCancelable(false);
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    button.setVisibility(View.VISIBLE);
+                    editE.setText("");
+                    editP.setText("");
+                }
+
+            });
+            AlertDialog alertDialog=builder.create();
+            alertDialog.show();
             //End Code For Checking Username and Password Field Empty
         }
         else
         {
-            //Code For Getting Data From Mysql
+            //Code for Volley,StringRequest.....
             StringRequest stringRequest = new StringRequest(Request.Method.POST, log_url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -73,21 +94,43 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d("jsonObject", jsonObject.toString());
                             serverMessage = jsonObject.getString("Message");
                             status = jsonObject.getString("StatusCode");
-                            builder.setTitle("Login Information :");
 
                             if (status.equals("1"))
                             {
                                     JSONObject Object = jsonObject.getJSONObject("Content");
                                     emp=Object.getString("EmpName");
-                                    Log.d("EmpName",emp);
-                                    builder.setMessage(serverMessage+"\n"+"Welcome "+emp);
+                                    empCode=Object.getString("EmpCode");
+                                    empEmail=Object.getString("UserLoginEmailID");
+                                    empTel=Object.getString("TelephoneNo");
+                                    empPhone=Object.getString("PhoneNo");
+                                    empFax=Object.getString("FaxNo");
 
+
+                                progressBar.setVisibility(View.INVISIBLE);
+                                Intent intent=new Intent(LoginActivity.this,ContentActivity.class);
+                                //intent.putExtra("EmpName",emp);
+                                String[] data = {emp, empCode, empEmail, empTel, empPhone, empFax};
+                                intent.putExtra("data",data);
+                                startActivity(intent);
                             }
                             else
                             {
+                                builder.setTitle("Login Information :");
                                 builder.setMessage(serverMessage);
+                                builder.setCancelable(false);
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                        progressBar.setVisibility(View.INVISIBLE);
+                                        button.setVisibility(View.VISIBLE);
+                                        editE.setText("");
+                                        editP.setText("");
+                                    }
+                                });
+                                AlertDialog alertDialog=builder.create();
+                                alertDialog.show();
                             }
-                            displayAlerts(status);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -102,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
             }) {
-                //Code For Send Data's to PHP file
+                //Code For Send Data's to Server
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<String, String>();
@@ -111,39 +154,14 @@ public class LoginActivity extends AppCompatActivity {
                     params.put("Password", password);
                     return params;
                 }
-                //End `Code For Send Data's to PHP file
+                //End Code For Send Data's to Server
             };
             Mysingleton.getInstance(LoginActivity.this).addToRequest(stringRequest);
         }
 
 
     }
+    //End Code for Volley,StringRequest.....
 
-    public void displayAlerts(final String message) {
-        //Code For Alert Dialog
-        builder.setCancelable(false);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
 
-                if (message.equals("input_error")) {
-                    editE.setText("");
-                    editP.setText("");
-                }
-                if (message.equals("1")) {
-                    Intent intent=new Intent(LoginActivity.this,ContentActivity.class);
-                    intent.putExtra("EmpName",emp);
-                    startActivity(intent);
-                }
-                if (message.equals("2")) {
-                    editE.setText("");
-                    editP.setText("");
-                }
-            }
-        });
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        //End Code For Alert Dialog
-    }
 }
