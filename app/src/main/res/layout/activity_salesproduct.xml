@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SalesproductActivity">
+
+
+
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+       <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_marginTop="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back_icon"
+            android:tint="#ffff"/>
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:gravity="center_horizontal"
+            android:text="@string/account"
+            android:textSize="23sp"/>
+
+
+        </LinearLayout>
+
+        <SearchView
+            android:theme="@style/SearchViewStyle"
+            android:id="@+id/search"
+            android:focusableInTouchMode="true"
+            android:queryHint="@string/search"
+            android:layout_width="match_parent"
+            android:background="@drawable/search"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:queryBackground="@android:color/transparent"
+            android:iconifiedByDefault="false"
+            android:layout_height="60dp"
+            tools:targetApi="lollipop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/allButton"
+                android:layout_marginTop="1dp"
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffff"
+                android:background="@color/colorPrimary"
+                android:text="@string/all"
+                android:textAllCaps="false"
+                android:textSize="18sp" />
+
+
+
+            <Button
+                android:id="@+id/activeButton"
+                android:drawableLeft="@drawable/circle_acia"
+                android:drawableTint="#24AF29"
+                android:layout_marginTop="1dp"
+                android:layout_width="133dp"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content"
+                android:textColor="#ffff"
+                android:text="@string/active"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:drawableStart="@drawable/circle_acia"
+                tools:targetApi="m" />
+
+
+            <Button
+                android:id="@+id/inactiveButton"
+                android:drawableLeft="@drawable/circle_acia"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorPrimary"
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffff"
+                android:text="@string/inactive"
+                android:textSize="18sp"
+                android:drawableStart="@drawable/circle_acia" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/bottomLinear"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add_icon"
+            android:contentDescription="@string/todo" />
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_customer"
+        android:textAllCaps="false"
+        android:textColor="#ffff"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:gravity="center"
+        android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
