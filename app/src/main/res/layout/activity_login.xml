@@ -40,13 +40,11 @@
             android:textStyle="bold"
             android:maxLines="1"
             android:includeFontPadding="true"
-            android:paddingLeft="10dp"
+            android:padding="10dp"
             android:focusableInTouchMode="true"
             android:singleLine="true"
             android:background="@drawable/button_2"
-            android:hint="@string/username"
-            android:paddingStart="10dp"
-            tools:ignore="RtlSymmetry" />
+            android:hint="@string/username" />
 
         <EditText
             android:id="@+id/userPass"
@@ -56,14 +54,12 @@
             android:maxLines="1"
             android:password="true"
             android:includeFontPadding="true"
-            android:paddingLeft="10dp"
+            android:padding="10dp"
             android:focusableInTouchMode="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="103dp"
             android:background="@drawable/button_1"
-            android:hint="@string/password"
-            android:paddingStart="10dp"
-            tools:ignore="RtlSymmetry" />
+            android:hint="@string/password" />
 
         <CheckBox
             android:layout_width="wrap_content"

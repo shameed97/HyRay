@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editE,editP;
     private AlertDialog.Builder builder;
     private String email,password,status,serverMessage;
-    private String emp,empCode,empEmail,empTel,empPhone,empFax;
+    private String emp,empCode,empEmail,empTel,empPhone,empFax,empId;
     private int id=1;
     private String log_url="http://52.163.56.202/hyrayapi/api/user/login";
     private ProgressBar progressBar;
@@ -104,12 +104,13 @@ public class LoginActivity extends AppCompatActivity {
                                     empTel=Object.getString("TelephoneNo");
                                     empPhone=Object.getString("PhoneNo");
                                     empFax=Object.getString("FaxNo");
+                                    empId=Object.getString("EmpID");
 
 
                                 progressBar.setVisibility(View.INVISIBLE);
                                 Intent intent=new Intent(LoginActivity.this,ContentActivity.class);
                                 //intent.putExtra("EmpName",emp);
-                                String[] data = {emp, empCode, empEmail, empTel, empPhone, empFax};
+                                String[] data = {emp, empCode, empEmail, empTel, empPhone, empFax,empId};
                                 intent.putExtra("data",data);
                                 startActivity(intent);
                             }

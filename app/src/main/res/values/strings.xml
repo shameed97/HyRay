@@ -31,4 +31,16 @@
     <string name="tel">Tel</string>
     <string name="phone">Phone</string>
     <string name="fax">Fax</string>
+    <string name="search">Search Customer</string>
+    <string name="all">All</string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
+    <string name="add_new_customer">Add New Customer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="customer_list_is_empty">Customer list is empty</string>
+    <string name="a_n_nb_n_nc_n_nd_n_ne_n_nf_n_ng_n_nh_n_ni_n_nj_n_nk_n_nl_n_nm_n_nn_n_no_n_np_n_nq_n_nr_n_ns_n_nt_n_nu_n_nv_n_nw_n_nx_n_ny_n_nz">A  B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z</string>
+    <string name="cancel">CANCEL</string>
+    <string name="confirm">CONFIRM</string>
 </resources>

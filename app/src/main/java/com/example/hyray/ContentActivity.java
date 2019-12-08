@@ -1,34 +1,33 @@
 package com.example.hyray;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.android.material.internal.NavigationMenuView;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.Arrays;
+public class ContentActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class ContentActivity extends AppCompatActivity  {
-
-    private TextView textName,textId;
+    private TextView textName, textId;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private NavigationMenuView navigationMenuView;
-    private String emp,empCode,empEmail,empTel,empPhone,empFax;
-    private String []data;
+    private String emp, empCode, empEmail, empTel, empPhone, empFax,empId;
+    private String[] data;
+    private Button butSales;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,20 +35,28 @@ public class ContentActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_content);
 
         //Code For getting Value via Intent
-        Intent intent=getIntent();
-            data = intent.getStringArrayExtra("data");
+        Intent intent = getIntent();
+        data = intent.getStringArrayExtra("data");
         if (data != null) {
-            emp=data[0];
-            empCode=data[1];
-            empEmail=data[2];
-            empTel=data[3];
-            empPhone=data[4];
-            empFax=data[5];
+            emp = data[0];
+            empCode = data[1];
+            empEmail = data[2];
+            empTel = data[3];
+            empPhone = data[4];
+            empFax = data[5];
+            empId=data[6];
         }
         //End Code For getting Value via Intent
 
-        textName=findViewById(R.id.saleName);
-        textId=findViewById(R.id.salesCode);
+        //FindViewById for all Buttons and Implements OnClick Listener
+
+        butSales = findViewById(R.id.SalesOrderButton);
+
+        butSales.setOnClickListener(this);
+        //End FindViewById for all Buttons and Implements OnClick Listener
+
+        textName = findViewById(R.id.saleName);
+        textId = findViewById(R.id.salesCode);
         textName.setText(emp);
         textId.setText(empCode);
 
@@ -57,20 +64,18 @@ public class ContentActivity extends AppCompatActivity  {
 
     }
 
-    public void setNavigation()
-    {
+    public void setNavigation() {
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navigation_view);
-        navigationMenuView= (NavigationMenuView) navigationView.getChildAt(0);
-        navigationMenuView.addItemDecoration(new DividerItemDecoration(ContentActivity.this,DividerItemDecoration.VERTICAL));
+        navigationMenuView = (NavigationMenuView) navigationView.getChildAt(0);
+        navigationMenuView.addItemDecoration(new DividerItemDecoration(ContentActivity.this, DividerItemDecoration.VERTICAL));
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                Log.d("sha","Its working");
-                switch (menuItem.getItemId())
-                {
+                Log.d("sha", "Its working");
+                switch (menuItem.getItemId()) {
                     case R.id.home:
                         displayMessage("Home");
                         break;
@@ -87,9 +92,9 @@ public class ContentActivity extends AppCompatActivity  {
                         displayMessage("About");
                         break;
                     case R.id.acct:
-                       Intent intent=new Intent(ContentActivity.this,AccountActivity.class);
-                       intent.putExtra("data",data);
-                       startActivity(intent);
+                        Intent intent = new Intent(ContentActivity.this, AccountActivity.class);
+                        intent.putExtra("data", data);
+                        startActivity(intent);
                         break;
 
                 }
@@ -98,7 +103,7 @@ public class ContentActivity extends AppCompatActivity  {
             }
         });
 
-        LinearLayout layout=navigationView.findViewById(R.id.linear);
+        LinearLayout layout = navigationView.findViewById(R.id.linear);
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,4 +121,18 @@ public class ContentActivity extends AppCompatActivity  {
     public void set(View view) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
+
+    //Method for OnClick Listener for All Buttons
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.SalesOrderButton:
+                Intent intent=new Intent(ContentActivity.this,SalesproductActivity.class);
+                intent.putExtra("data",data);
+                startActivity(intent);
+                break;
+        }
+    }
+    //End Method for OnClick Listener for All Buttons
 }

@@ -40,30 +40,26 @@
             android:textStyle="bold"
             android:maxLines="1"
             android:includeFontPadding="true"
-            android:paddingLeft="10dp"
+            android:padding="10dp"
             android:focusableInTouchMode="true"
             android:singleLine="true"
             android:background="@drawable/button_2"
-            android:hint="@string/username"
-            android:paddingStart="10dp"
-            tools:ignore="RtlHardcoded,RtlSymmetry" />
+            android:hint="@string/username" />
 
         <EditText
             android:id="@+id/userPass"
-            android:password="true"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:singleLine="true"
             android:maxLines="1"
+            android:password="true"
             android:includeFontPadding="true"
-            android:paddingLeft="10dp"
+            android:padding="10dp"
             android:focusableInTouchMode="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="103dp"
             android:background="@drawable/button_1"
-            android:hint="@string/password"
-            android:paddingStart="10dp"
-            tools:ignore="RtlHardcoded,RtlSymmetry" />
+            android:hint="@string/password" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -98,8 +94,9 @@
             android:layout_marginTop="220dp"
             android:layout_gravity="center_horizontal"
             android:indeterminate="false"
+            android:max="100"
             android:visibility="invisible"
-            android:max="100" />
+            tools:ignore="UnusedAttribute" />
 
         <TextView
             android:layout_width="wrap_content"
